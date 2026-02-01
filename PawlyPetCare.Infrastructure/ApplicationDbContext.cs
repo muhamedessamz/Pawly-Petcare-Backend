@@ -14,6 +14,9 @@ namespace PawlyPetCare.Infrastructure
         public DbSet<Pet> Pets { get; set; }
         public DbSet<BlogPost> BlogPosts { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Appointment> Appointments { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -32,7 +35,8 @@ namespace PawlyPetCare.Infrastructure
                 Email = "admin@pawly.com",
                 PasswordHash = "admin", 
                 Role = "Admin",
-                Name = "Admin User"
+                Name = "Admin User",
+                IsVerified = true // Allow admin to login without OTP verification
             });
         }
     }

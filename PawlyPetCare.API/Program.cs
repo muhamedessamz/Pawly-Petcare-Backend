@@ -9,10 +9,13 @@ builder.Services.AddOpenApi();
 
 // Application Services
 builder.Services.AddScoped<PawlyPetCare.Application.Interfaces.IAuthService, PawlyPetCare.Application.Services.AuthService>();
-builder.Services.AddScoped<PawlyPetCare.Application.Interfaces.IProductService, PawlyPetCare.Application.Services.ProductService>();
 builder.Services.AddScoped<PawlyPetCare.Application.Interfaces.IDoctorService, PawlyPetCare.Application.Services.DoctorService>();
 builder.Services.AddScoped<PawlyPetCare.Application.Interfaces.IPetService, PawlyPetCare.Application.Services.PetService>();
 builder.Services.AddScoped<PawlyPetCare.Application.Interfaces.IBlogService, PawlyPetCare.Application.Services.BlogService>();
+builder.Services.AddScoped<PawlyPetCare.Application.Interfaces.IUserService, PawlyPetCare.Application.Services.UserService>();
+builder.Services.AddScoped<PawlyPetCare.Application.Interfaces.IAppointmentService, PawlyPetCare.Application.Services.AppointmentService>();
+builder.Services.AddScoped<PawlyPetCare.Application.Interfaces.IOrderService, PawlyPetCare.Application.Services.OrderService>();
+builder.Services.AddScoped<PawlyPetCare.Application.Interfaces.IAdminService, PawlyPetCare.Application.Services.AdminService>();
 
 // DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -24,7 +27,8 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowFrontend",
         policy =>
         {
-            policy.WithOrigins("http://localhost:5173", "http://127.0.0.1:5173") // Adjust port if needed
+            policy.WithOrigins("http://localhost:5173", "http://127.0.0.1:5173", 
+                               "http://localhost:5174", "http://127.0.0.1:5174")
                   .AllowAnyHeader()
                   .AllowAnyMethod();
         });
@@ -42,9 +46,10 @@ if (app.Environment.IsDevelopment())
     });
 }
 
-app.UseHttpsRedirection();
-
 app.UseCors("AllowFrontend");
+app.UseHttpsRedirection();
+app.UseStaticFiles(); // For uploaded images
+
 
 app.UseAuthorization();
 
