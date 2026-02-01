@@ -1,0 +1,20 @@
+# .NET
+bin/
+obj/
+*.user
+*.pdb
+*.dll
+*.exe
+*.cache
+.vs/
+**/TestResults/
+
+# Node.js
+node_modules/
+dist/
+build/
+.env
+.DS_Store
+coverage/
+npm-debug.log
+yarn-error.log
