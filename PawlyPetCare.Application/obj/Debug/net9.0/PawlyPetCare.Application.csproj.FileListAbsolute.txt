@@ -1,0 +1,15 @@
+C:\Users\User\Desktop\pawly-petcare\Pawly-Backend\PawlyPetCare.Application\bin\Debug\net9.0\PawlyPetCare.Application.deps.json
+C:\Users\User\Desktop\pawly-petcare\Pawly-Backend\PawlyPetCare.Application\bin\Debug\net9.0\PawlyPetCare.Application.dll
+C:\Users\User\Desktop\pawly-petcare\Pawly-Backend\PawlyPetCare.Application\bin\Debug\net9.0\PawlyPetCare.Application.pdb
+C:\Users\User\Desktop\pawly-petcare\Pawly-Backend\PawlyPetCare.Application\bin\Debug\net9.0\PawlyPetCare.Domain.dll
+C:\Users\User\Desktop\pawly-petcare\Pawly-Backend\PawlyPetCare.Application\bin\Debug\net9.0\PawlyPetCare.Domain.pdb
+C:\Users\User\Desktop\pawly-petcare\Pawly-Backend\PawlyPetCare.Application\obj\Debug\net9.0\PawlyPetCare.Application.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\pawly-petcare\Pawly-Backend\PawlyPetCare.Application\obj\Debug\net9.0\PawlyPetCare.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\pawly-petcare\Pawly-Backend\PawlyPetCare.Application\obj\Debug\net9.0\PawlyPetCare.Application.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\pawly-petcare\Pawly-Backend\PawlyPetCare.Application\obj\Debug\net9.0\PawlyPetCare.Application.AssemblyInfo.cs
+C:\Users\User\Desktop\pawly-petcare\Pawly-Backend\PawlyPetCare.Application\obj\Debug\net9.0\PawlyPetCare.Application.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\pawly-petcare\Pawly-Backend\PawlyPetCare.Application\obj\Debug\net9.0\PawlyPet.DCD6C3DC.Up2Date
+C:\Users\User\Desktop\pawly-petcare\Pawly-Backend\PawlyPetCare.Application\obj\Debug\net9.0\PawlyPetCare.Application.dll
+C:\Users\User\Desktop\pawly-petcare\Pawly-Backend\PawlyPetCare.Application\obj\Debug\net9.0\refint\PawlyPetCare.Application.dll
+C:\Users\User\Desktop\pawly-petcare\Pawly-Backend\PawlyPetCare.Application\obj\Debug\net9.0\PawlyPetCare.Application.pdb
+C:\Users\User\Desktop\pawly-petcare\Pawly-Backend\PawlyPetCare.Application\obj\Debug\net9.0\ref\PawlyPetCare.Application.dll
