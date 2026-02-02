@@ -16,6 +16,7 @@ builder.Services.AddScoped<PawlyPetCare.Application.Interfaces.IUserService, Paw
 builder.Services.AddScoped<PawlyPetCare.Application.Interfaces.IAppointmentService, PawlyPetCare.Application.Services.AppointmentService>();
 builder.Services.AddScoped<PawlyPetCare.Application.Interfaces.IOrderService, PawlyPetCare.Application.Services.OrderService>();
 builder.Services.AddScoped<PawlyPetCare.Application.Interfaces.IAdminService, PawlyPetCare.Application.Services.AdminService>();
+builder.Services.AddScoped<PawlyPetCare.Application.Interfaces.IProductService, PawlyPetCare.Application.Services.ProductService>();
 
 // DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options =>

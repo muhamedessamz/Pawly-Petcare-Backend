@@ -5,8 +5,10 @@ namespace PawlyPetCare.Application.DTOs
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
-        public string Category { get; set; } // Food, Accessories, Houses, Toys, Healthcare, Grooming
-        public string PetType { get; set; } // Dog, Cat, Both
+        public string Category { get; set; } 
+        public string PetType { get; set; } 
+        public string? Image { get; set; }
+        public int Stock { get; set; }
     }
 
     public class UpdateProductDto
@@ -16,6 +18,8 @@ namespace PawlyPetCare.Application.DTOs
         public decimal Price { get; set; }
         public string Category { get; set; }
         public string PetType { get; set; }
+        public string? Image { get; set; }
+        public int? Stock { get; set; }
     }
 
     public class ProductResponseDto
