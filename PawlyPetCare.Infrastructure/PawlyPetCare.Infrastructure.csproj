@@ -13,6 +13,7 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <NoWarn>$(NoWarn);EF1001;MSB3026;MSB3027</NoWarn>
   </PropertyGroup>
 
 </Project>

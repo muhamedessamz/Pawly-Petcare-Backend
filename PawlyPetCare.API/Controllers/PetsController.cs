@@ -18,7 +18,14 @@ namespace PawlyPetCare.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var pets = await _petService.GetAllPetsAsync();
+            var pets = await _petService.GetApprovedPetsAsync();
+            return Ok(pets);
+        }
+
+        [HttpGet("pending")]
+        public async Task<IActionResult> GetPending()
+        {
+            var pets = await _petService.GetPendingPetsAsync();
             return Ok(pets);
         }
 
@@ -33,8 +40,21 @@ namespace PawlyPetCare.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] Pet pet)
         {
-           var createdPet = await _petService.CreatePetAsync(pet);
-           return CreatedAtAction(nameof(GetById), new { id = createdPet.Id }, createdPet);
+            pet.Status = "PendingApproval"; // Force pending
+            pet.CreatedAt = DateTime.UtcNow;
+            var createdPet = await _petService.CreatePetAsync(pet);
+            return CreatedAtAction(nameof(GetById), new { id = createdPet.Id }, createdPet);
+        }
+
+        [HttpPost("approve/{id}")]
+        public async Task<IActionResult> Approve(int id)
+        {
+            try {
+                await _petService.ApprovePetAsync(id);
+                return NoContent();
+            } catch (Exception ex) {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

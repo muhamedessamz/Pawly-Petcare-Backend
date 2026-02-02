@@ -1,3 +1,5 @@
+
+
 namespace PawlyPetCare.Domain.Entities
 {
     public class Product

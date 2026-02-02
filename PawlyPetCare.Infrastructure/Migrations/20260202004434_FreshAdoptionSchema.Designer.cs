@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PawlyPetCare.Infrastructure;
 
@@ -11,9 +12,11 @@ using PawlyPetCare.Infrastructure;
 namespace PawlyPetCare.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260202004434_FreshAdoptionSchema")]
+    partial class FreshAdoptionSchema
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -259,7 +262,7 @@ namespace PawlyPetCare.Infrastructure.Migrations
                             Id = 1,
                             Age = 2,
                             Breed = "Golden Retriever",
-                            CreatedAt = new DateTime(2026, 2, 2, 0, 49, 31, 947, DateTimeKind.Utc).AddTicks(8396),
+                            CreatedAt = new DateTime(2026, 2, 2, 0, 44, 33, 875, DateTimeKind.Utc).AddTicks(7638),
                             Description = "Max is a happy-go-lucky Golden Retriever who loves to swim and play fetch.",
                             Gender = "Male",
                             Image = "https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&q=80&w=800",
@@ -276,7 +279,7 @@ namespace PawlyPetCare.Infrastructure.Migrations
                             Id = 2,
                             Age = 1,
                             Breed = "Persian",
-                            CreatedAt = new DateTime(2026, 2, 2, 0, 49, 31, 948, DateTimeKind.Utc).AddTicks(91),
+                            CreatedAt = new DateTime(2026, 2, 2, 0, 44, 33, 875, DateTimeKind.Utc).AddTicks(9287),
                             Description = "Luna is a beautiful Persian cat with a very sweet and quiet personality.",
                             Gender = "Female",
                             Image = "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=800",
@@ -293,7 +296,7 @@ namespace PawlyPetCare.Infrastructure.Migrations
                             Id = 3,
                             Age = 3,
                             Breed = "German Shepherd",
-                            CreatedAt = new DateTime(2026, 2, 2, 0, 49, 31, 948, DateTimeKind.Utc).AddTicks(94),
+                            CreatedAt = new DateTime(2026, 2, 2, 0, 44, 33, 875, DateTimeKind.Utc).AddTicks(9290),
                             Description = "Rocky is a highly intelligent German Shepherd who needs an active home.",
                             Gender = "Male",
                             Image = "https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?auto=format&fit=crop&q=80&w=800",
@@ -310,7 +313,7 @@ namespace PawlyPetCare.Infrastructure.Migrations
                             Id = 4,
                             Age = 4,
                             Breed = "Beagle",
-                            CreatedAt = new DateTime(2026, 2, 2, 0, 49, 31, 948, DateTimeKind.Utc).AddTicks(96),
+                            CreatedAt = new DateTime(2026, 2, 2, 0, 44, 33, 875, DateTimeKind.Utc).AddTicks(9330),
                             Description = "Milo is a classic Beagle who loves sniffing out new adventures.",
                             Gender = "Male",
                             Image = "https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?auto=format&fit=crop&q=80&w=800",
@@ -327,7 +330,7 @@ namespace PawlyPetCare.Infrastructure.Migrations
                             Id = 5,
                             Age = 2,
                             Breed = "Siamese",
-                            CreatedAt = new DateTime(2026, 2, 2, 0, 49, 31, 948, DateTimeKind.Utc).AddTicks(102),
+                            CreatedAt = new DateTime(2026, 2, 2, 0, 44, 33, 875, DateTimeKind.Utc).AddTicks(9440),
                             Description = "Bella is a social Siamese cat who loves to be the center of attention.",
                             Gender = "Female",
                             Image = "https://images.unsplash.com/photo-1513245543132-31f507417b26?auto=format&fit=crop&q=80&w=800",
@@ -344,7 +347,7 @@ namespace PawlyPetCare.Infrastructure.Migrations
                             Id = 6,
                             Age = 1,
                             Breed = "Poodle",
-                            CreatedAt = new DateTime(2026, 2, 2, 0, 49, 31, 948, DateTimeKind.Utc).AddTicks(103),
+                            CreatedAt = new DateTime(2026, 2, 2, 0, 44, 33, 875, DateTimeKind.Utc).AddTicks(9442),
                             Description = "Charlie is a charming little poodle who is great with children.",
                             Gender = "Male",
                             Image = "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&q=80&w=800",

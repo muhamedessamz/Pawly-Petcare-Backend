@@ -36,9 +36,28 @@ namespace PawlyPetCare.Application.Services
             return await _context.Pets.ToListAsync();
         }
 
+        public async Task<IEnumerable<Pet>> GetApprovedPetsAsync()
+        {
+            return await _context.Pets.Where(p => p.Status == "Approved").ToListAsync();
+        }
+
+        public async Task<IEnumerable<Pet>> GetPendingPetsAsync()
+        {
+            return await _context.Pets.Where(p => p.Status == "PendingApproval").ToListAsync();
+        }
+
         public async Task<Pet?> GetPetByIdAsync(int id)
         {
             return await _context.Pets.FindAsync(id);
+        }
+
+        public async Task ApprovePetAsync(int id)
+        {
+            var pet = await _context.Pets.FindAsync(id);
+            if (pet == null) throw new Exception("Pet not found");
+
+            pet.Status = "Approved";
+            await _context.SaveChangesAsync();
         }
     }
 }

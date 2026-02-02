@@ -1,0 +1,14 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  PawlyPetCare.Domain -> C:\Users\User\Desktop\pawly-petcare\Pawly-Backend\PawlyPetCare.Domain\bin\Debug\net9.0\PawlyPetCare.Domain.dll
+C:\Users\User\Desktop\pawly-petcare\Pawly-Backend\PawlyPetCare.Infrastructure\ApplicationDbContext.cs(14,114): error CS0117: 'CoreEventId' does not contain a definition for 'DecimalTypeDefaultWarning' [C:\Users\User\Desktop\pawly-petcare\Pawly-Backend\PawlyPetCare.Infrastructure\PawlyPetCare.Infrastructure.csproj]
+
+Build FAILED.
+
+C:\Users\User\Desktop\pawly-petcare\Pawly-Backend\PawlyPetCare.Infrastructure\ApplicationDbContext.cs(14,114): error CS0117: 'CoreEventId' does not contain a definition for 'DecimalTypeDefaultWarning' [C:\Users\User\Desktop\pawly-petcare\Pawly-Backend\PawlyPetCare.Infrastructure\PawlyPetCare.Infrastructure.csproj]
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:01.28
+
+Workload updates are available. Run `dotnet workload list` for more information.
