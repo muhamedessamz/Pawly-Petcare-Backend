@@ -92,29 +92,11 @@ namespace PawlyPetCare.API.Controllers
         }
 
         [HttpPost("products")]
-        public async Task<IActionResult> CreateProduct([FromForm] CreateProductDto dto, IFormFile? image)
+        public async Task<IActionResult> CreateProduct([FromBody] CreateProductDto dto)
         {
             try
             {
-                string? imagePath = null;
-                
-                if (image != null)
-                {
-                    var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", "products");
-                    Directory.CreateDirectory(uploadsFolder);
-
-                    var uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(image.FileName);
-                    var filePath = Path.Combine(uploadsFolder, uniqueFileName);
-
-                    using (var fileStream = new FileStream(filePath, FileMode.Create))
-                    {
-                        await image.CopyToAsync(fileStream);
-                    }
-
-                    imagePath = "/uploads/products/" + uniqueFileName;
-                }
-                
-                var result = await _adminService.CreateProductAsync(dto, imagePath);
+                var result = await _adminService.CreateProductAsync(dto, dto.Image);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -124,29 +106,11 @@ namespace PawlyPetCare.API.Controllers
         }
 
         [HttpPut("products/{id}")]
-        public async Task<IActionResult> UpdateProduct(int id, [FromForm] UpdateProductDto dto, IFormFile? image)
+        public async Task<IActionResult> UpdateProduct(int id, [FromBody] UpdateProductDto dto)
         {
             try
             {
-                string? imagePath = null;
-                
-                if (image != null)
-                {
-                    var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", "products");
-                    Directory.CreateDirectory(uploadsFolder);
-
-                    var uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(image.FileName);
-                    var filePath = Path.Combine(uploadsFolder, uniqueFileName);
-
-                    using (var fileStream = new FileStream(filePath, FileMode.Create))
-                    {
-                        await image.CopyToAsync(fileStream);
-                    }
-
-                    imagePath = "/uploads/products/" + uniqueFileName;
-                }
-                
-                var result = await _adminService.UpdateProductAsync(id, dto, imagePath);
+                var result = await _adminService.UpdateProductAsync(id, dto, dto.Image);
                 return Ok(result);
             }
             catch (Exception ex)

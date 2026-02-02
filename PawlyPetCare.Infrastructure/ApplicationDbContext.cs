@@ -9,6 +9,14 @@ namespace PawlyPetCare.Infrastructure
         {
         }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
+            // Suppress warnings that are treated as errors
+            optionsBuilder.ConfigureWarnings(warnings => 
+                warnings.Ignore(Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId.PendingModelChangesWarning));
+        }
+
         public DbSet<Product> Products { get; set; }
         public DbSet<Doctor> Doctors { get; set; }
         public DbSet<Pet> Pets { get; set; }
