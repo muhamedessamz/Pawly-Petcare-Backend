@@ -111,7 +111,9 @@ namespace PawlyPetCare.Application.Services
                 TotalAppointments = await _context.Appointments.CountAsync(),
                 TotalUsers = await _context.Users.Where(u => u.Role == "User").CountAsync(),
                 PendingAppointments = await _context.Appointments.CountAsync(a => a.Status == "Pending"),
-                ProcessingOrders = await _context.Orders.CountAsync(o => o.Status == "Processing")
+                ProcessingOrders = await _context.Orders.CountAsync(o => o.Status == "Processing"),
+                TotalAdoptionRequests = await _context.Pets.CountAsync(p => p.Status == "PendingApproval"),
+                TotalBlogs = await _context.BlogPosts.CountAsync()
             };
 
             return stats;

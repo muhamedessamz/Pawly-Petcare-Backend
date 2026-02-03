@@ -34,5 +34,7 @@ namespace PawlyPetCare.Application.DTOs
         public int TotalUsers { get; set; }
         public int PendingAppointments { get; set; }
         public int ProcessingOrders { get; set; }
+        public int TotalAdoptionRequests { get; set; }
+        public int TotalBlogs { get; set; }
     }
 }
