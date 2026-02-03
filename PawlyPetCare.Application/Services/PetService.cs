@@ -63,7 +63,7 @@ namespace PawlyPetCare.Application.Services
         public async Task<IEnumerable<Pet>> GetPetsByOwnerEmailAsync(string email)
         {
             return await _context.Pets
-                .Where(p => p.OwnerEmail == email)
+                .Where(p => p.OwnerEmail.ToLower() == email.ToLower())
                 .OrderByDescending(p => p.CreatedAt)
                 .ToListAsync();
         }
