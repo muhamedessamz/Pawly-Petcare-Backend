@@ -66,7 +66,9 @@ namespace PawlyPetCare.Application.Services
                 Token = "mock-jwt-token-" + Guid.NewGuid(),
                 Email = user.Email,
                 Role = user.Role,
-                Name = user.Name
+                Name = user.Name,
+                Username = user.Username,
+                ProfilePictureUrl = user.ProfilePictureUrl
             };
         }
 
@@ -125,7 +127,8 @@ namespace PawlyPetCare.Application.Services
                 Token = "pending-verification", 
                 Email = user.Email,
                 Role = user.Role,
-                Name = user.Name
+                Name = user.Name,
+                Username = username
             };
         }
 

@@ -17,6 +17,8 @@ namespace PawlyPetCare.Domain.Entities
         public string? Description { get; set; }
         public string? Traits { get; set; } // Comma separated: Playful, Energetic, etc.
         public string? Weight { get; set; }
+        public string? OwnerEmail { get; set; }
+        public string? OwnerPhone { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     }
 }

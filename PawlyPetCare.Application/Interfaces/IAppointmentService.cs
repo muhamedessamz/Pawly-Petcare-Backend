@@ -8,5 +8,7 @@ namespace PawlyPetCare.Application.Interfaces
     {
         Task<AppointmentDto> CreateAppointmentAsync(string userEmail, CreateAppointmentDto createDto);
         Task<List<AppointmentDto>> GetMyAppointmentsAsync(string userEmail);
+        Task<List<AppointmentDto>> GetAllAppointmentsAsync();
+        Task<bool> UpdateStatusAsync(int id, string status);
     }
 }

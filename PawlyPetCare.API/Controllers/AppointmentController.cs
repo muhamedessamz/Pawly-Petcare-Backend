@@ -57,5 +57,38 @@ namespace PawlyPetCare.API.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+             try
+            {
+                var result = await _appointmentService.GetAllAppointmentsAsync();
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut("{id}/status")]
+        public async Task<IActionResult> UpdateStatus(int id, [FromBody] UpdateStatusDto dto)
+        {
+             try
+            {
+                var result = await _appointmentService.UpdateStatusAsync(id, dto.Status);
+                if (!result) return NotFound();
+                return Ok(new { message = "Status updated successfully" });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+    }
+
+    public class UpdateStatusDto
+    {
+        public string Status { get; set; }
     }
 }

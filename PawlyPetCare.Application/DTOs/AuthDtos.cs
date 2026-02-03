@@ -35,6 +35,8 @@ namespace PawlyPetCare.Application.DTOs
         public required string Email { get; set; }
         public required string Role { get; set; }
         public string? Name { get; set; }
+        public string? Username { get; set; }
+        public string? ProfilePictureUrl { get; set; }
     }
 
     public class VerifyOtpDto

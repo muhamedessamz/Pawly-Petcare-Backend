@@ -63,6 +63,30 @@ namespace PawlyPetCare.Application.Services
                 .OrderByDescending(a => a.CreatedAt)
                 .ToListAsync();
 
+            return await MapToDtoList(appointments);
+        }
+
+        public async Task<List<AppointmentDto>> GetAllAppointmentsAsync()
+        {
+            var appointments = await _context.Appointments
+                .OrderByDescending(a => a.CreatedAt)
+                .ToListAsync();
+
+            return await MapToDtoList(appointments);
+        }
+
+        public async Task<bool> UpdateStatusAsync(int id, string status)
+        {
+            var appointment = await _context.Appointments.FindAsync(id);
+            if (appointment == null) return false;
+
+            appointment.Status = status;
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+        private async Task<List<AppointmentDto>> MapToDtoList(List<Appointment> appointments)
+        {
             var appointmentDtos = new List<AppointmentDto>();
             foreach (var appt in appointments)
             {
@@ -80,7 +104,6 @@ namespace PawlyPetCare.Application.Services
                     DoctorName = doctor?.Name ?? "Unknown Doctor"
                 });
             }
-
             return appointmentDtos;
         }
     }
