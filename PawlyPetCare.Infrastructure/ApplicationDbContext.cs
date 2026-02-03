@@ -100,6 +100,54 @@ namespace PawlyPetCare.Infrastructure
                     Description = "Charlie is a charming little poodle who is great with children."
                 }
             );
+
+            // Seed Doctors
+            modelBuilder.Entity<Doctor>().HasData(
+                new Doctor
+                {
+                    Id = 1,
+                    Name = "Dr. Richard Hamilton",
+                    Specialty = "Senior Veterinary Surgeon",
+                    Image = "https://img.freepik.com/free-photo/close-up-health-worker_23-2149112506.jpg?t=st=1769968108~exp=1769971708~hmac=776163d86f26ae815d19154eb6dbe230a0e53b173b9720bffdc9e4a243b970a1",
+                    Rating = 4.9,
+                    ExperienceYears = 15,
+                    Location = "Pawly Main Clinic",
+                    Availability = "Mon,Wed,Fri,Sat"
+                },
+                new Doctor
+                {
+                    Id = 2,
+                    Name = "Dr. Isabella Rossi",
+                    Specialty = "Dermatology & Allergy Specialist",
+                    Image = "https://img.freepik.com/free-photo/female-doctor-hospital-with-stethoscope_23-2148827776.jpg?semt=ais_hybrid&w=740&q=80",
+                    Rating = 5.0,
+                    ExperienceYears = 10,
+                    Location = "Pawly Main Clinic",
+                    Availability = "Tue,Thu,Fri"
+                },
+                new Doctor
+                {
+                    Id = 3,
+                    Name = "Dr. James Sterling",
+                    Specialty = "Dental & Oral Surgery",
+                    Image = "https://img.freepik.com/free-photo/close-up-health-worker_23-2149112576.jpg?t=st=1769968157~exp=1769971757~hmac=cef906f5b4c3c4931da10ccbb42c3abb3f1dbff106c2d5b7b947cd2fc315c042",
+                    Rating = 4.8,
+                    ExperienceYears = 12,
+                    Location = "Pawly Main Clinic",
+                    Availability = "Mon,Tue,Thu"
+                },
+                new Doctor
+                {
+                    Id = 4,
+                    Name = "Dr. Elena Petrova",
+                    Specialty = "Exotic Animal Specialist",
+                    Image = "https://img.freepik.com/free-photo/portrait-beautiful-young-female-doctor_329181-1163.jpg?t=st=1769968709~exp=1769972309~hmac=f14363b73f0cfa29201dfd812bb25548db7a9596a4630cccf38494b50bd498cf&w=1480",
+                    Rating = 4.9,
+                    ExperienceYears = 9,
+                    Location = "Pawly Main Clinic",
+                    Availability = "Wed,Sat,Sun"
+                }
+            );
         }
     }
 }
