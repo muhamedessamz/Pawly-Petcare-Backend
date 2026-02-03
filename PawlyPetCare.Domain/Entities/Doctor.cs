@@ -10,5 +10,8 @@ namespace PawlyPetCare.Domain.Entities
         public required string Location { get; set; }
         public string? Availability { get; set; }
         public int ExperienceYears { get; set; }
+        
+        public int ClinicId { get; set; }
+        public Clinic? Clinic { get; set; }
     }
 }

@@ -29,6 +29,13 @@ namespace PawlyPetCare.API.Controllers
             return Ok(pets);
         }
 
+        [HttpGet("admin/all")]
+        public async Task<IActionResult> GetAllAdmin()
+        {
+            var pets = await _petService.GetAllPetsAsync();
+            return Ok(pets);
+        }
+
         [HttpGet("my-pets")]
         public async Task<IActionResult> GetMyPets([FromQuery] string email)
         {
@@ -61,6 +68,19 @@ namespace PawlyPetCare.API.Controllers
                 await _petService.ApprovePetAsync(id);
                 return NoContent();
             } catch (Exception ex) {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            try
+            {
+                await _petService.DeletePetAsync(id);
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
                 return BadRequest(ex.Message);
             }
         }

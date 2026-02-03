@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PawlyPetCare.Infrastructure;
 
@@ -11,9 +12,11 @@ using PawlyPetCare.Infrastructure;
 namespace PawlyPetCare.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260203081523_UpdatePetSeedData")]
+    partial class UpdatePetSeedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -407,11 +410,11 @@ namespace PawlyPetCare.Infrastructure.Migrations
                             Id = 1,
                             Age = 2,
                             Breed = "Golden Retriever",
-                            CreatedAt = new DateTime(2026, 2, 3, 8, 20, 50, 596, DateTimeKind.Utc).AddTicks(6140),
+                            CreatedAt = new DateTime(2026, 2, 3, 8, 15, 23, 12, DateTimeKind.Utc).AddTicks(3328),
                             Description = "Max is a happy-go-lucky Golden Retriever who loves to swim and play fetch.",
                             Gender = "Male",
                             Image = "https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&q=80&w=800",
-                            Location = "New York, NY",
+                            Location = "Cairo, Egypt",
                             Name = "Max",
                             OwnerEmail = "adopt@pawly.com",
                             OwnerPhone = "+1 (555) 010-1010",
@@ -426,11 +429,11 @@ namespace PawlyPetCare.Infrastructure.Migrations
                             Id = 2,
                             Age = 1,
                             Breed = "Persian",
-                            CreatedAt = new DateTime(2026, 2, 3, 8, 20, 50, 596, DateTimeKind.Utc).AddTicks(8164),
+                            CreatedAt = new DateTime(2026, 2, 3, 8, 15, 23, 12, DateTimeKind.Utc).AddTicks(5483),
                             Description = "Luna is a beautiful Persian cat with a very sweet and quiet personality.",
                             Gender = "Female",
                             Image = "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=800",
-                            Location = "Los Angeles, CA",
+                            Location = "Alexandria, Egypt",
                             Name = "Luna",
                             OwnerEmail = "adopt@pawly.com",
                             OwnerPhone = "+1 (555) 020-2020",
@@ -445,11 +448,11 @@ namespace PawlyPetCare.Infrastructure.Migrations
                             Id = 3,
                             Age = 3,
                             Breed = "German Shepherd",
-                            CreatedAt = new DateTime(2026, 2, 3, 8, 20, 50, 596, DateTimeKind.Utc).AddTicks(8169),
+                            CreatedAt = new DateTime(2026, 2, 3, 8, 15, 23, 12, DateTimeKind.Utc).AddTicks(5490),
                             Description = "Rocky is a highly intelligent German Shepherd who needs an active home.",
                             Gender = "Male",
                             Image = "https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?auto=format&fit=crop&q=80&w=800",
-                            Location = "Chicago, IL",
+                            Location = "Giza, Egypt",
                             Name = "Rocky",
                             OwnerEmail = "adopt@pawly.com",
                             OwnerPhone = "+1 (555) 030-3030",
@@ -464,11 +467,11 @@ namespace PawlyPetCare.Infrastructure.Migrations
                             Id = 4,
                             Age = 4,
                             Breed = "Beagle",
-                            CreatedAt = new DateTime(2026, 2, 3, 8, 20, 50, 596, DateTimeKind.Utc).AddTicks(8173),
+                            CreatedAt = new DateTime(2026, 2, 3, 8, 15, 23, 12, DateTimeKind.Utc).AddTicks(5493),
                             Description = "Milo is a classic Beagle who loves sniffing out new adventures.",
                             Gender = "Male",
                             Image = "https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?auto=format&fit=crop&q=80&w=800",
-                            Location = "Seattle, WA",
+                            Location = "Cairo, Egypt",
                             Name = "Milo",
                             OwnerEmail = "adopt@pawly.com",
                             OwnerPhone = "+1 (555) 040-4040",
@@ -483,11 +486,11 @@ namespace PawlyPetCare.Infrastructure.Migrations
                             Id = 5,
                             Age = 2,
                             Breed = "Siamese",
-                            CreatedAt = new DateTime(2026, 2, 3, 8, 20, 50, 596, DateTimeKind.Utc).AddTicks(8175),
+                            CreatedAt = new DateTime(2026, 2, 3, 8, 15, 23, 12, DateTimeKind.Utc).AddTicks(5495),
                             Description = "Bella is a social Siamese cat who loves to be the center of attention.",
                             Gender = "Female",
                             Image = "https://images.unsplash.com/photo-1513245543132-31f507417b26?auto=format&fit=crop&q=80&w=800",
-                            Location = "Austin, TX",
+                            Location = "Mansoura, Egypt",
                             Name = "Bella",
                             OwnerEmail = "adopt@pawly.com",
                             OwnerPhone = "+1 (555) 050-5050",
@@ -502,11 +505,11 @@ namespace PawlyPetCare.Infrastructure.Migrations
                             Id = 6,
                             Age = 1,
                             Breed = "Poodle",
-                            CreatedAt = new DateTime(2026, 2, 3, 8, 20, 50, 596, DateTimeKind.Utc).AddTicks(8177),
+                            CreatedAt = new DateTime(2026, 2, 3, 8, 15, 23, 12, DateTimeKind.Utc).AddTicks(5498),
                             Description = "Charlie is a charming little poodle who is great with children.",
                             Gender = "Male",
                             Image = "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&q=80&w=800",
-                            Location = "Boston, MA",
+                            Location = "Cairo, Egypt",
                             Name = "Charlie",
                             OwnerEmail = "adopt@pawly.com",
                             OwnerPhone = "+1 (555) 060-6060",
