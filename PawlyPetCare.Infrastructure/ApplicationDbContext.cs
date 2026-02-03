@@ -25,6 +25,7 @@ namespace PawlyPetCare.Infrastructure
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<Volunteer> Volunteers { get; set; }
 
         protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
         {

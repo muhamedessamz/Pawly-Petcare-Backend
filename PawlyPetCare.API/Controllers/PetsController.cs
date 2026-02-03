@@ -29,6 +29,14 @@ namespace PawlyPetCare.API.Controllers
             return Ok(pets);
         }
 
+        [HttpGet("my-pets")]
+        public async Task<IActionResult> GetMyPets([FromQuery] string email)
+        {
+            if (string.IsNullOrEmpty(email)) return BadRequest("Email is required");
+            var pets = await _petService.GetPetsByOwnerEmailAsync(email);
+            return Ok(pets);
+        }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {

@@ -59,5 +59,13 @@ namespace PawlyPetCare.Application.Services
             pet.Status = "Approved";
             await _context.SaveChangesAsync();
         }
+
+        public async Task<IEnumerable<Pet>> GetPetsByOwnerEmailAsync(string email)
+        {
+            return await _context.Pets
+                .Where(p => p.OwnerEmail == email)
+                .OrderByDescending(p => p.CreatedAt)
+                .ToListAsync();
+        }
     }
 }
