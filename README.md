@@ -1,96 +1,220 @@
-# Pawly Petcare - Project Structure Documentation
+# 🐾 Pawly Petcare - Backend API
 
-This document provides a detailed overview of the **Pawly Petcare** project structure, covering both the Frontend (Client & Dashboard) and Backend (API).
+<div align="center">
 
-## 📂 Project Root
-`c:\Users\muham\Desktop\Main Projects\pawly-petcare`
+![.NET](https://img.shields.io/badge/.NET-8.0-512BD4?style=for-the-badge&logo=dotnet)
+![C#](https://img.shields.io/badge/C%23-12.0-239120?style=for-the-badge&logo=c-sharp)
+![SQL Server](https://img.shields.io/badge/SQL%20Server-CC2927?style=for-the-badge&logo=microsoft-sql-server)
+![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=json-web-tokens)
+![Entity Framework](https://img.shields.io/badge/Entity%20Framework-512BD4?style=for-the-badge&logo=dotnet)
 
-The project is divided into two main sections:
-- **Pawly-Frontend**: Contains the user-facing website and the admin dashboard.
-- **Pawly-Backend**: Contains the trusted API built with .NET 8 (Clean Architecture).
+**A robust, scalable, and secure RESTful API for the Pawly Petcare Platform.**
 
----
+[Features](#-features) • [Getting Started](#-getting-started) • [API Documentation](#-api-documentation) • [Architecture](#-architecture)
 
-## 🖥️ Frontend Structure (`Pawly-Frontend`)
-
-The frontend is a monorepo-style setup containing two separate React applications built with **Vite**.
-
-### 1. Main Website (`/Main`)
-This is the customer-facing application where users can view pets, products, blogs, and services.
-
-**Key Directories:**
-- **`src/`**: Source code root.
-    - **`assets/`**: Static assets like images and global styles.
-    - **`components/`**: Reusable UI components (e.g., Navbar, Footer, Buttons).
-    - **`context/`**: React Context for global state management (e.g., AuthContext, ShopContext).
-    - **`pages/`**: specific pages mapping to routes (e.g., `Home.jsx`, `Pets.jsx`, `Shop.jsx`).
-    - **`services/`**: API integration logic (Axios setup to communicate with Backend).
-    - **`utils/`**: Helper functions and constants.
-    - **`App.jsx`**: Main application component defining routes.
-    - **`main.jsx`**: Entry point rendering the React app.
-
-**Tech Stack:** React, Vite, TailwindCSS, Lucide React (Icons), React Router DOM.
-
-### 2. Admin Dashboard (`/Dashboard`)
-This is the administrative panel for managing the platform (Pets, Users, Products, etc.).
-
-**Key Directories:**
-- **`src/`**: Source code root.
-    - **`layouts/`**: Layout wrappers (e.g., SidebarLayout) for dashboard pages.
-    - **`pages/`**: Admin views (e.g., `DashboardHome`, `ManagePets`, `ManageUsers`).
-    - **`services/`**: API service calls specific to admin actions.
-    - **`lib/`**: Utility libraries.
-    - **`App.jsx`**: Main routing configuration for the dashboard.
-
-**Tech Stack:** React, Vite, TailwindCSS, Recharts (for charts), Axios.
+</div>
 
 ---
 
-## ⚙️ Backend Structure (`Pawly-Backend`)
+## 📋 Table of Contents
 
-The backend follows **Clean Architecture** principles, separating concerns into four specific projects.
-
-### 1. API Layer (`PawlyPetCare.API`)
-The entry point of the application. It handles HTTP requests and responses.
-
-- **`Controllers/`**: REST API Endpoints (e.g., `PetsController`, `AuthController`).
-- **`Program.cs`**: Application startup, Dependency Injection configuration, Database connection, and Middleware setup.
-- **`appsettings.json`**: Configuration file (Connection Strings, JWT keys).
-- **`wwwroot/`**: Static files folder (used for serving uploaded images).
-
-### 2. Application Layer (`PawlyPetCare.Application`)
-Contains the business logic and rules of the application. It depends only on the Domain layer.
-
-- **`DTOs/`** (Data Transfer Objects): Objects used to pass data between the API and Client (e.g., `LoginDto`, `CreatePetDto`).
-- **`Interfaces/`**: Abstractions for services (e.g., `IPetService`, `IAuthService`).
-- **`Services/`**: Implementation of business logic (e.g., `PetService`, `AuthService`).
-
-### 3. Infrastructure Layer (`PawlyPetCare.Infrastructure`)
-Handles external concerns like Database connectivity and file storage.
-
-- **`ApplicationDbContext.cs`**: The EF Core database context class managing tables.
-- **`Migrations/`**: Code-first migrations to create/update the database schema.
-- **`Repositories/`**: (If used) Data access implementations.
-
-### 4. Domain Layer (`PawlyPetCare.Domain`)
-The core of the application involving enterprise logic and entities. It has NO dependencies.
-
-- **`Entities/`**: Database models representing tables (e.g., `Pet`, `User`, `Product`, `Appointment`).
+- [Overview](#-overview)
+- [Features](#-features)
+- [Technology Stack](#-technology-stack)
+- [Architecture](#-architecture)
+- [Getting Started](#-getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Database Setup](#database-setup)
+- [API Documentation](#-api-documentation)
+- [Project Structure](#-project-structure)
+- [Security](#-security)
+- [Deployment](#-deployment)
+- [License](#-license)
 
 ---
 
-## 🚀 Key Workflows
+## 🎯 Overview
 
-### API Communication
-- **Frontend** uses `axios` (configured in `src/services/api.js`) to make requests.
-- **Backend** exposes endpoints via **Controllers** (e.g., `api/pets`, `api/auth`).
-- **CORS** policies in `Program.cs` allow the Frontend to communicate with the Backend.
+**Pawly Petcare API** is the backbone of the Pawly ecosystem, powering both the user-facing website and the administrative dashboard. It provides a comprehensive set of endpoints for managing pets, adoptions, products, orders, veterinary services, and blog content.
 
-### Database
-- Uses **SQL Server**.
-- Managed via **Entity Framework Core**.
-- Connection string is located in `appsettings.json`.
+### 🎪 Key Capabilities
 
-### Authentication
-- Uses **JWT (JSON Web Tokens)** if configured (currently undergoing setup).
-- `AuthService` handles Login/Register logic.
+- **Pet Adoption**: seamless centralized system for managing pet profiles, adoption requests, and approvals.
+- **E-Commerce**: Full product catalog, cart management, and order processing.
+- **Veterinary Services**: Doctor profiles, appointment scheduling, and clinic management.
+- **Content Management**: Blog system for sharing pet care tips and news.
+- **Dashboard Analytics**: Real-time statistics for administrators.
+
+---
+
+## ✨ Features
+
+### 🔐 Authentication & Authorization
+- **JWT-based Authentication** regarding secure access.
+- **Role-based Access Control** (Admin, User, Doctor).
+- **Email Verification** with OTP support.
+- **Secure Password Hashing**.
+
+### 🐾 Pet & Adoption Management
+- **Pet Profiles**: Comprehensive details (Breed, Age, Size, Traits).
+- **Adoption Workflow**: Request submission, review, approval, and rejection.
+- **Status Tracking**: Track pet status (Available, Pending, Adopted).
+- **Owner Contact**: Secure communication channels for inquiries.
+
+### 🛒 E-Commerce & Orders
+- **Product Catalog**: Categorized products with images and details.
+- **Order Processing**: Create orders with items, calculate totals.
+- **Order History**: Users can view their past purchases.
+
+### 🏥 Veterinary Services
+- **Doctor Management**: Profiles, specialties, and availability.
+- **Appointment Scheduling**: Book visits with vets.
+- **Clinic Information**: Locations and contact details.
+
+### 📝 Content & Administration
+- **Blog System**: Create, update, and delete pet care articles.
+- **Dashboard Stats**: Aggregated metrics on users, orders, and adoptions.
+- **Admin Tools**: User management (create admins/doctors), product inventory, and more.
+
+---
+
+## 🛠️ Technology Stack
+
+### Backend
+- **Framework**: ASP.NET Core 8.0
+- **Language**: C# 12.0
+- **ORM**: Entity Framework Core 8.0
+- **Database**: SQL Server 2022
+- **Authentication**: JWT (JSON Web Tokens)
+- **Documentation**: Swagger/OpenAPI
+
+### Architecture
+- **Clean Architecture** (Separation of Concerns)
+- **Repository Pattern** (via DbContext abstraction)
+- **Dependency Injection**
+
+---
+
+## 🏗️ Architecture
+
+The project follows **Clean Architecture** principles to ensure maintainability and scalability:
+
+```
+PawlyPetCare/
+├── PawlyPetCare.Core/           # Domain Layer (Entities)
+│   └── Entities/                # Database models (Pet, User, Product, etc.)
+│
+├── PawlyPetCare.Application/    # Application Layer (Business Logic)
+│   ├── DTOs/                    # Data Transfer Objects
+│   ├── Interfaces/              # Service contracts
+│   └── Services/                # Service implementations
+│
+├── PawlyPetCare.Infrastructure/ # Infrastructure Layer (Data Access)
+│   ├── ApplicationDbContext.cs  # EF Core Context
+│   └── Migrations/              # Database Migrations
+│
+└── PawlyPetCare.API/            # Presentation Layer (API)
+    ├── Controllers/             # API Endpoints
+    └── Program.cs               # Startup & Configuration
+```
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- **.NET 8.0 SDK**
+- **SQL Server** (Local or Remote)
+- **Visual Studio** or **VS Code**
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/muhamedessamz/Pawly-Petcare-Backend.git
+   cd Pawly-Petcare-Backend
+   ```
+
+2. **Restore Dependencies**
+   ```bash
+   dotnet restore
+   ```
+
+3. **Configure Database**
+   Update `appsettings.json` in `PawlyPetCare.API` with your connection string:
+   ```json
+   "ConnectionStrings": {
+     "DefaultConnection": "Server=localhost;Database=PawlyDb;Trusted_Connection=True;TrustServerCertificate=True;"
+   }
+   ```
+
+4. **Run Migrations**
+   ```bash
+   dotnet ef database update --project PawlyPetCare.Infrastructure --startup-project PawlyPetCare.API
+   ```
+
+5. **Start the API**
+   ```bash
+   dotnet run --project PawlyPetCare.API
+   ```
+
+---
+
+## 📚 API Documentation
+
+Once the application is running, you can access the interactive **Swagger UI** documentation:
+
+```
+https://localhost:7194/swagger
+```
+*(Note: Port number may vary based on your launch settings)*
+
+### Core Endpoints
+
+#### Pets
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/pets` | Get available pets |
+| POST | `/api/pets` | Create a new pet listing |
+| POST | `/api/pets/approve/{id}` | Approve a pet listing (Admin) |
+| POST | `/api/pets/reject/{id}` | Reject a pet listing (Admin) |
+
+#### Auth
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/auth/login` | User login |
+| POST | `/api/auth/register` | User registration |
+
+#### Admin
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/admin/stats` | Get dashboard statistics |
+| POST | `/api/admin/create-doctor` | Register a new doctor |
+
+---
+
+## 🔒 Security
+
+- **JWT Auth**: All protected endpoints require a valid Bearer token.
+- **CORS Policy**: Configured to allow requests from the trusted Frontend domain.
+- **Input Validation**: DTO-based validation to ensure data integrity.
+- **Sanitization**: Protection against common web vulnerabilities.
+
+---
+
+## 👨💻 Author
+
+**Mohamed Essam**
+- GitHub: [@muhamedessamz](https://github.com/muhamedessamz)
+
+---
+
+<div align="center">
+
+**⭐ Star this repository if you find it helpful!**
+
+Made with ❤️ for Pets
+
+</div>
