@@ -55,8 +55,17 @@ namespace PawlyPetCare.Application.Services
         {
             var pet = await _context.Pets.FindAsync(id);
             if (pet == null) throw new Exception("Pet not found");
-
+            
             pet.Status = "Approved";
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task RejectPetAsync(int id)
+        {
+            var pet = await _context.Pets.FindAsync(id);
+            if (pet == null) throw new Exception("Pet not found");
+
+            pet.Status = "Rejected";
             await _context.SaveChangesAsync();
         }
 

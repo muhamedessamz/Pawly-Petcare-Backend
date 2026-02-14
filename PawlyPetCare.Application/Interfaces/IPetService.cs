@@ -10,6 +10,7 @@ namespace PawlyPetCare.Application.Interfaces
         Task<Pet?> GetPetByIdAsync(int id);
         Task<Pet> CreatePetAsync(Pet pet);
         Task ApprovePetAsync(int id);
+        Task RejectPetAsync(int id);
         Task DeletePetAsync(int id);
         Task<IEnumerable<Pet>> GetPetsByOwnerEmailAsync(string email);
     }

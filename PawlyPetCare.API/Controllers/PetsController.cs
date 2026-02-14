@@ -71,6 +71,20 @@ namespace PawlyPetCare.API.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpPost("reject/{id}")]
+        public async Task<IActionResult> Reject(int id)
+        {
+            try
+            {
+                await _petService.RejectPetAsync(id);
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
